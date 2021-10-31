@@ -34,6 +34,7 @@ const Login = ({errors, setErrors, setUser, setIsLoading}) => {
                 <input 
                     type="text" 
                     id="username" 
+                    autoComplete="on"
                     value={username} 
                     onChange={(e) => setUsername(e.target.value)}
                 />

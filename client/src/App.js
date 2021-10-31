@@ -30,6 +30,7 @@ function App() {
           <Switch>
             <Route exact path='/'>
               <Home 
+                user={user}
               />
             </Route>
           </Switch>

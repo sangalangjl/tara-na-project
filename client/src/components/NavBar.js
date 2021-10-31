@@ -15,7 +15,7 @@ const NavBar = ({user, setUser}) => {
         })
     }
 
-return(
+    return(
         <header className="NavBarContainer">
             <div> 
                 <Link to="/">
