@@ -1,28 +1,66 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useState, useEffect} from 'react'
+import { Switch, Route } from 'react-router-dom'
+import './App.css';
+import NavBar from './components/NavBar';
+import Login from './components/Login';
+import Home from './components/Home';
+import Signup from './components/Signup';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [errors, setErrors] = useState([])
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user))
+      }
+    })
+  }, [])
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <>
+      <NavBar 
+        user={user} 
+        setUser={setUser}
+      />
+      <main>
+        {user ? (
+          <Switch>
+            <Route exact path='/'>
+              <Home 
+              />
+            </Route>
+          </Switch>
+        ) : (
+          <Switch>
+            <Route path='/signup'>
+              <Signup 
+                setUser={setUser} 
+                errors={errors} 
+                setErrors={setErrors} 
+                isLoading={isLoading} 
+                setIsLoading={setIsLoading}
+              />
+            </Route>
+            <Route path='/login'>
+              <Login 
+                setUser={setUser} 
+                errors={errors} 
+                setErrors={setErrors} 
+                setIsLoading={setIsLoading} 
+              />
+            </Route>
+            <Route exact path='/'>
+              <Home 
+                user={user}
+              />
+            </Route>
+          </Switch>
+        )}
+      </main>     
+    </>
   );
 }
 
