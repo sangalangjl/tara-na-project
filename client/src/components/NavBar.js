@@ -27,6 +27,9 @@ const NavBar = ({user, setUser}) => {
             <div className="NavBarLinks">
                 {user ? (
                     <>
+                        <Link to='/trips' className="TripsLink">
+                            Trips
+                        </Link>
                         <button className="LogOutButton" onClick={handleLogout}>Log Out</button> 
                     </>
                 ) : (

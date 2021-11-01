@@ -5,11 +5,14 @@ import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Home from './components/Home';
 import Signup from './components/Signup';
+import TripContainer from './components/TripContainer';
 
 function App() {
   const [user, setUser] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState([])
+  const [getTrips, setGetTrips] = useState([])
+  const [manualToggle, setManualToggle] = useState(false)
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -31,6 +34,13 @@ function App() {
             <Route exact path='/'>
               <Home 
                 user={user}
+              />
+            </Route>
+            <Route path='/'>
+              <TripContainer 
+                user={user}
+                getTrips={getTrips}
+                setGetTrips={setGetTrips}
               />
             </Route>
           </Switch>
