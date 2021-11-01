@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :user_events
-  resources :user_trips
-  resources :events
-  resources :trips
+  resources :user_events, only: [:create, :update, :destroy]
+  resources :user_trips, only: [:create, :destroy]
+  resources :events, only: [:create, :update, :destroy]
+  resources :trips, only: [:index, :show, :create]
   # resources :users
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
