@@ -14,7 +14,7 @@ const TripCard = ({trip}) => {
             <div>
                 <h4>{start_date} to {end_date}</h4>
             </div>
-            <div>
+            <div className="TripCardImg">
                 <img src={img_url} alt={img_url}/>
             </div>
         </div>

@@ -54,4 +54,11 @@ a:link {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 1rem;
+  width: 445px;
+  height: 310px;
+}
+
+.TripCardImg img {
+  width: 445px;
+  height: 310px;
 }

@@ -4,7 +4,7 @@ import UpcomingTrips from './UpcomingTrips'
 import NewTripForm from './NewTripForm'
 import TripCard from './TripCard'
 
-const TripContainer = ({user, getTrips, setGetTrips}) => {
+const TripContainer = ({user, getTrips, setGetTrips, errors, setErrors}) => {
 
     useEffect(() => {
         fetch("/trips")
@@ -22,7 +22,10 @@ const TripContainer = ({user, getTrips, setGetTrips}) => {
                 </div>
                 <div>
                     <button>+ New Trip</button>
-                    <NewTripForm />
+                    <NewTripForm 
+                        errors={errors} 
+                        setErrors={setErrors} 
+                    />
                 </div>
             </div> 
             <div>

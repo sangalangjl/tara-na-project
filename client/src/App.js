@@ -41,6 +41,8 @@ function App() {
                 user={user}
                 getTrips={getTrips}
                 setGetTrips={setGetTrips}
+                errors={errors} 
+                setErrors={setErrors}
               />
             </Route>
           </Switch>
