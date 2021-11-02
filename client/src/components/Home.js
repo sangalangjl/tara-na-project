@@ -1,16 +1,20 @@
 const Home = ({user}) => {
         if (user) {
             return (
-                <div>
-                    <h1>Welcome Back {user.first_name}!</h1>
-                    <h2>Organize your next trip with us!</h2>
+                <div className="HomeDiv">
+                    <div className="WelcomeText">
+                        <h1>Welcome Back {user.first_name}!</h1>
+                        <h1>Organize your next trip with us!</h1>
+                    </div>
                 </div>
             )
             } else {
                 return (
-                    <div>
-                        <h1>Welcome to TaraNa,</h1>
-                        <h2>Organize your next trip with us!</h2>
+                    <div className="HomeDiv">
+                        <div className="WelcomeText">
+                            <h1>Welcome to TaraNa,</h1>
+                            <h1>Organize your next trip with us!</h1>
+                        </div>
                     </div>
                 )
             }
