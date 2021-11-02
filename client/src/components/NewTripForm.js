@@ -12,7 +12,6 @@ const NewTripForm = ({errors, setErrors}) => {
     // const history = useHistory()
 
     const handleNewTripSubmit = (e) => {
-        e.preventDefault()
         setErrors([])
         fetch('/trips', {
             method: "POST",

@@ -1,6 +1,4 @@
-import {useState, useEffect} from 'react'
-import PastTrips from './PastTrips'
-import UpcomingTrips from './UpcomingTrips'
+import {useEffect} from 'react'
 import NewTripForm from './NewTripForm'
 import TripCard from './TripCard'
 
