@@ -29,7 +29,9 @@ const TripContainer = ({user, getTrips, setGetTrips, errors, setErrors}) => {
             <div>
                 <div>
                     <button>Upcoming</button>
-                    {displayTrips}
+                    <div className="TripList">
+                        {displayTrips}
+                    </div>
                 </div>
                 {/* <div>
                     <button>Past</button>
