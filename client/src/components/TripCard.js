@@ -1,10 +1,10 @@
 import React from 'react'
 
 const TripCard = ({trip}) => {
-    const {name, location, start_date, end_date} = trip
+    const {name, location, start_date, end_date, img_url} = trip
 
     return (
-        <div>
+        <div className="TripCardContainer">
             <div>
                 <h2>{name}</h2>
             </div>
@@ -13,6 +13,9 @@ const TripCard = ({trip}) => {
             </div>
             <div>
                 <h4>{start_date} to {end_date}</h4>
+            </div>
+            <div>
+                <img src={img_url} alt={img_url}/>
             </div>
         </div>
     )
