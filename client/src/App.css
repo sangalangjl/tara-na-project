@@ -93,6 +93,12 @@ a:link {
   font-weight: lighter;
 }
 
+.RemoveIcon {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
 .TripList {
   display: flex;
   flex-direction: row;

@@ -11,8 +11,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState([])
-  const [getTrips, setGetTrips] = useState([])
-  const [manualToggle, setManualToggle] = useState(false)
+  const [trips, setTrips] = useState([])
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -21,6 +20,11 @@ function App() {
       }
     })
   }, [])
+
+  const handleDeleteTrip = (id) => {
+    const newTrips = trips.filter((trip) => trip.id !== id)
+    setTrips(newTrips)
+}
 
   return (
     <>
@@ -39,10 +43,11 @@ function App() {
             <Route path='/'>
               <TripContainer 
                 user={user}
-                getTrips={getTrips}
-                setGetTrips={setGetTrips}
+                trips={trips}
+                setTrips={setTrips}
                 errors={errors} 
                 setErrors={setErrors}
+                handleDeleteTrip={handleDeleteTrip}
               />
             </Route>
           </Switch>

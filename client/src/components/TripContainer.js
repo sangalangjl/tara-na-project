@@ -1,16 +1,17 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import NewTripForm from './NewTripForm'
 import TripCard from './TripCard'
 
-const TripContainer = ({user, getTrips, setGetTrips, errors, setErrors}) => {
+const TripContainer = ({user, trips, setTrips, errors, setErrors, handleDeleteTrip}) => {
+
 
     useEffect(() => {
         fetch("/trips")
         .then(r => r.json())
-        .then(trips => setGetTrips(trips))
-    }, [setGetTrips])
+        .then(setTrips)
+    }, [])
 
-    const displayTrips = getTrips.map((trip) => <TripCard trip={trip} key={trip.id}/>)
+    const displayTrips = trips.map((trip) => <TripCard trip={trip} key={trip.id} handleDeleteTrip={handleDeleteTrip} />)
 
     return (
         <div>
