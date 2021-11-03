@@ -8,18 +8,15 @@ const TripContainer = ({user, errors, setErrors}) => {
     const [trips, setTrips] = useState([])
 
     useEffect(() => {
-        fetch("/trips", {
-            credentials: 'include'
-        })
+        fetch("/trips")
         .then(r => r.json())
         .then((trips) => setTrips(trips))
     }, [])
 
     const leaveTrip = (tripId) => {
-        let userTripId = trips.find(trip => trip.id === tripId).user_trip.id
+        const userTripId = trips.find(trip => trip.id === tripId).user_trip.id
         return fetch(`/user_trips/${userTripId}`, {
-            method: 'DELETE',
-            credentials: 'include'
+            method: 'DELETE'
         })
             .then(res => {
                 if (res.ok) {

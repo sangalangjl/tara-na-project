@@ -6,9 +6,7 @@ const TripCard = ({tripId, leaveTrip, joinTrip}) => {
     const [trip, setTrip] = useState(null)
 
     const fetchTripCallback = useCallback(() => {
-        fetch(`trips/${tripId}`, {
-            credentials: 'include'
-        })
+        fetch(`/trips/${tripId}`)
             .then(res => res.json())
             .then(trip => setTrip(trip))
     }, [tripId])
@@ -18,7 +16,7 @@ const TripCard = ({tripId, leaveTrip, joinTrip}) => {
     }, [fetchTripCallback])
 
     const leaveOrJoinButton = (trip) => {
-        if (trip.user_group) {
+        if (trip.user_trip) {
             return (
                 <button onClick={() => leaveTrip(trip.id).then(() => fetchTripCallback())}>Leave Trip</button>
             )

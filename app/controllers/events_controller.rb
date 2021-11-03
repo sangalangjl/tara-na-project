@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
+  before_action :authorize_user, only: [:update, :destroy]
 
   # GET /events
   def index
-    @events = Event.all
-
-    render json: @events
+    events = Event.all
+    render json: events, each_serializer: EventIndexSerializer
   end
 
   # GET /events/1
@@ -15,12 +15,11 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-    @event = Event.new(event_params)
-
-    if @event.save
-      render json: @event, status: :created, location: @event
+    event = @current_user.created_events.build(event_params)
+    if event.save
+      render json: event, status: :created
     else
-      render json: @event.errors, status: :unprocessable_entity
+      render json: event.errors, status: :unprocessable_entity
     end
   end
 
@@ -46,6 +45,13 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :description, :location, :budget, :start_time, :end_time, :trip_id, :user_id)
+      params.permit(:title, :description, :location, :budget, :start_time, :end_time, :user_id, :trip_id)
+    end
+
+    def authorize_user
+      user_can_modify = @current_user.admin? || @event.user == @current_user
+      if !user_can_modify
+        render json: { error: "You don't have permission to perform that action" }, status: :forbidden
+      end
     end
 end
