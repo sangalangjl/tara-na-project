@@ -17,17 +17,17 @@ const EventCard = ({eventId, cancelEvent}) => {
         fetchEventCallback()
     }, [fetchEventCallback])
 
-    const handleCancel = (e) => {
-        cancelEvent(event.id)
-        history.push('/events')
-    }
-
     const cancelEventBtn = (event) => {
         if (event.user_can_modify) {
             return (
                 <button onClick={handleCancel}>Cancel Event</button>
             )
         }
+    }
+
+    const handleCancel = (e) => {
+        cancelEvent(event.id)
+        history.push('/events')
     }
 
     if (!event) { return <div></div>}

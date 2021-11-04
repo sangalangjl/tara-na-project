@@ -4,8 +4,7 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    events = Event.all
-    render json: events
+    render json: Event.all, each_serializer: EventIndexSerializer
   end
 
   # GET /events/1
@@ -26,7 +25,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   def update
     if @event.update(event_params)
-      render json: @event
+      render json: @event, status: :ok
     else
       render json: @event.errors, status: :unprocessable_entity
     end
@@ -38,14 +37,14 @@ class EventsController < ApplicationController
   end
 
   private
+    # Only allow a list of trusted parameters through.
+    def event_params
+      params.permit(:title, :description, :location, :budget, :start_time, :end_time, :trip_id)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def event_params
-      params.permit(:title, :description, :location, :budget, :start_time, :end_time, :user_id, :trip_id)
     end
 
     def authorize_user

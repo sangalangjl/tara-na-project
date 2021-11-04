@@ -1,11 +1,5 @@
 class UserEventsController < ApplicationController
 
-  # GET /user_events/1
-  def show
-    render json: @user_event
-  end
-
-  # POST /user_events
   def create
     user_event = current_user.user_events.build(user_event_params)
     if user_event.save
@@ -15,7 +9,6 @@ class UserEventsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user_events/1
   def update
     user_event = UserEvent.find(params[:id])
     if user_event.update(update_user_event_params)
@@ -25,7 +18,6 @@ class UserEventsController < ApplicationController
     end
   end
 
-  # DELETE /user_events/1
   def destroy
     user_event = UserEvent.find(params[:id])
     user_event.destroy
@@ -33,12 +25,11 @@ class UserEventsController < ApplicationController
 
   private
 
-    # Only allow a list of trusted parameters through.
-    def user_event_params
-      params.permit(:event_id)
-    end
+  def user_event_params
+    params.permit(:event_id)
+  end
 
-    def update_user_event_params
-      params.permit(:attended)
-    end
+  def update_user_event_params
+    params.permit(:attended)
+  end
 end

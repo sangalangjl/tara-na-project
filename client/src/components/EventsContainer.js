@@ -8,9 +8,12 @@ const EventsContainer = () => {
     const [trips, setTrips] = useState([])
 
     useEffect(() => {
-        fetch(`/events`)
+        fetch("/events")
             .then(res => res.json())
             .then(events => setEvents(events))
+    }, [])
+
+    useEffect(() => {
         fetch(`/trips`)
             .then(res => res.json())
             .then(trips => setTrips(trips))

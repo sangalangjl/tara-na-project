@@ -97,7 +97,7 @@ const EventsList = ({ events, trips, cancelEvent, createEvent}) => {
                                 type="datetime-local"
                                 id="end_time"
                                 value={end_time}
-                                onChange={(e) => setStartTime(e.target.value)}
+                                onChange={(e) => setEndTime(e.target.value)}
                             />
                         <button type="submit">Add Event</button>
                     </form>
