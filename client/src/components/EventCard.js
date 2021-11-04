@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const EventCard = ({eventId, cancelEvent}) => {
     const [event, setEvent] = useState(null)
@@ -36,15 +36,15 @@ const EventCard = ({eventId, cancelEvent}) => {
         <div>
             <h1>{event.title}</h1>
             {cancelEventBtn}
-            <small>Created by {event.creator} for <Link to={`/trips/${event.trip.id}`}>{event.trip.name}</Link></small>
+            {/* <small>Created by {event.creator} for <Link to={`/trips/${event.trip.id}`}>{event.trip.name}</Link></small> */}
             <p>{event.description}</p>
             <p>{event.time}</p>
             <p>Location: {event.location}</p>
-            <ul>
+            {/* <ul>
                 {event.attendees.map(attendee => (
                     <li>{attendee.username}</li>
                 ))}
-            </ul>
+            </ul> */}
         </div>
     )
 }

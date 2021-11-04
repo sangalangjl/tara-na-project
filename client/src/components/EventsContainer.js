@@ -29,7 +29,7 @@ const EventsContainer = () => {
     }
 
     const createEvent = (formData) => {
-        return fetch(`/events`, {
+        return fetch("/events", {
             method: "POST",
             headers: {
                 "Content-Type": 'application/json'
@@ -61,10 +61,12 @@ const EventsContainer = () => {
                 </Route>
                 <Route exact path="/events/:id"
                 render={({ match }) => {
-                    return <EventCard 
-                        eventId={match.params.id}
-                        cancelEvent={cancelEvent}
-                    />
+                    return (
+                        <EventCard 
+                            eventId={match.params.id}
+                            cancelEvent={cancelEvent}
+                        />
+                    )
                 }}
                 />
             </Switch>

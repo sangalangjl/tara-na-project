@@ -40,8 +40,8 @@ const TripCard = ({tripId, leaveTrip, joinTrip}) => {
             <h2>Events</h2>
                 <ul>
                     {trip.events?.map(event => (
-                        <div>
-                            {/* <Link to={`/events/${event.id}`}> */}
+                        <li>
+                            <Link to={`/events/${event.id}`}>
                             <div>
                                 {event.title}
                             </div>
@@ -54,8 +54,8 @@ const TripCard = ({tripId, leaveTrip, joinTrip}) => {
                             <div>
                             {event.budget}
                             </div>
-                            {/* </Link> */}
-                        </div>
+                            </Link>
+                        </li>
                     ))}
                 </ul>
         </div>

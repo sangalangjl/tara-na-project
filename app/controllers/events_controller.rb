@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events
   def index
     events = Event.all
-    render json: events, each_serializer: EventIndexSerializer
+    render json: events
   end
 
   # GET /events/1

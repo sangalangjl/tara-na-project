@@ -38,20 +38,24 @@ const EventsList = ({ events, trips, cancelEvent, createEvent}) => {
 
     return (
         <div>
-            <h1>Events</h1>
             <div>
-                {events.map(event => (
-                    <p>
-                        <Link to={`/events/${event.id}`}>
-                            {event.title}
-                        </Link>
-                        {DeleteEventBtn(event)}
-                    </p>
-        
-                ))}
+                <h1>Events</h1>
+                <div>
+                    {events.map(event => (
+                        <p>
+                            <Link to={`events/${event.id}`}>
+                                {event.title}
+                            </Link>
+                            <span>
+                            {DeleteEventBtn(event)}
+                            </span>
+                        </p>
+                    ))}
+                </div>
             </div>
             <div>
                 <h3>Add Event</h3>
+                <div>
                     <form onSubmit={handleSubmit}>
                         <label>Title:</label>
                             <input
@@ -60,7 +64,6 @@ const EventsList = ({ events, trips, cancelEvent, createEvent}) => {
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                             />
-                            
                         <label>Description:</label>
                             <input
                                 type="text"
@@ -98,6 +101,7 @@ const EventsList = ({ events, trips, cancelEvent, createEvent}) => {
                             />
                         <button type="submit">Add Event</button>
                     </form>
+                </div>
             </div>
         </div>
     )

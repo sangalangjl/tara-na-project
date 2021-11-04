@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import NewTripForm from './NewTripForm'
 import TripCard from './TripCard'
 import TripsList from './TripsList'
 
