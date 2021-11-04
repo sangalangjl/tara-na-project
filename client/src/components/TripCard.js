@@ -27,24 +27,35 @@ const TripCard = ({tripId, leaveTrip, joinTrip}) => {
         }
     }
 
-    if (!trip){return <div></div>}
+    if(!trip){return <div></div>}
 
     return (
         <div>
             <h1>{trip.name}</h1>
             {leaveOrJoinButton(trip)}
             <h2>Members</h2>
-                <ul>
-                    {trip.members?.map(member => <li>{member.username}</li>)}
-                </ul>
+                <div>
+                    {trip.members?.map(member => <div>{member.username}</div>)}
+                </div>
             <h2>Events</h2>
                 <ul>
                     {trip.events?.map(event => (
-                        <li>
-                            <Link to={`events/${event.id}`}>
-                            {event.title}
-                            </Link>
-                        </li>
+                        <div>
+                            {/* <Link to={`/events/${event.id}`}> */}
+                            <div>
+                                {event.title}
+                            </div>
+                            <div>
+                            {event.description}
+                            </div>
+                            <div>
+                            {event.location}
+                            </div>
+                            <div>
+                            {event.budget}
+                            </div>
+                            {/* </Link> */}
+                        </div>
                     ))}
                 </ul>
         </div>

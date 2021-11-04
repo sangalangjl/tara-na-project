@@ -41,7 +41,6 @@ const TripContainer = ({user, errors, setErrors}) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include',
             body: JSON.stringify({
                 trip_id: tripId
             })
@@ -74,7 +73,6 @@ const TripContainer = ({user, errors, setErrors}) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include',
             body: JSON.stringify(formData)
             })
             .then(res => {

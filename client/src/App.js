@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Signup from './components/Signup';
 import TripContainer from './components/TripContainer';
+import EventsContainer from './components/EventsContainer'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -19,8 +20,6 @@ function App() {
       }
     })
   }, [])
-
-  
 
   return (
     <>
@@ -36,8 +35,15 @@ function App() {
                 user={user}
               />
             </Route>
-            <Route path='/'>
+            <Route path='/trips'>
               <TripContainer 
+                user={user}
+                errors={errors} 
+                setErrors={setErrors}
+              />
+            </Route>
+            <Route path='/events'>
+              <EventsContainer 
                 user={user}
                 errors={errors} 
                 setErrors={setErrors}

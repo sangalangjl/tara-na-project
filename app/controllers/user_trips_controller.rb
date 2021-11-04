@@ -1,4 +1,5 @@
 class UserTripsController < ApplicationController
+
   # POST /user_trips
   def create
     user_trip = @current_user.user_trips.build(user_trip_params)
@@ -11,7 +12,7 @@ class UserTripsController < ApplicationController
 
   # DELETE /user_trips/1
   def destroy
-    UserTrip.find(params[:id])
+    UserTrip.find(params[:id]).destroy
   end
 
   private

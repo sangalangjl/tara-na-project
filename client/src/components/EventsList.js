@@ -42,7 +42,7 @@ const EventsList = ({ events, trips, cancelEvent, createEvent}) => {
             <div>
                 {events.map(event => (
                     <p>
-                        <Link to={`events/${event.id}`}>
+                        <Link to={`/events/${event.id}`}>
                             {event.title}
                         </Link>
                         {DeleteEventBtn(event)}

@@ -9,7 +9,7 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip }) => {
     const [img_url, setImgURL] = useState('')
 
     const leaveOrJoinButton = (trip) => {
-        if (trip.user_group) {
+        if (trip.user_trip) {
             return <button onClick={() => leaveTrip(trip.id)}>Leave Trip</button>
         } else {
             return <button onClick={() => joinTrip(trip.id)}>Join Trip</button>
@@ -37,8 +37,9 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip }) => {
             <h1>Trips</h1>
             <div>
                 {trips.map(trip => (
-                    <p>
-                        <Link to={`trips/${trip.id}`}>{trip.name}</Link> <span>{leaveOrJoinButton(trip)}</span>
+                    <p key={trip.id}>
+                        <Link to={`trips/${trip.id}`}>{trip.name}</Link> 
+                        <span>{leaveOrJoinButton(trip)}</span>
                     </p>
                 ))}
             </div>
@@ -47,35 +48,35 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip }) => {
                 <label>Name:</label>
                 <input
                     type="text"
-                    id="name"
+                    name="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
                 <label>Location:</label>
                 <input
                     type="text"
-                    id="location"
+                    name="location"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                 />
                 <label>Start Date:</label>
                 <input
                     type="text"
-                    id="start_date"
+                    name="start_date"
                     value={start_date}
                     onChange={(e) => setStartDate(e.target.value)}
                 />
                 <label>End Date:</label>
                 <input
                     type="text"
-                    id="end_date"
+                    name="end_date"
                     value={end_date}
                     onChange={(e) => setEndDate(e.target.value)}
                 />
                 <label>Image URL:</label>
                 <input
                     type="text"
-                    id="img_url"
+                    name="img_url"
                     value={img_url}
                     onChange={(e) => setImgURL(e.target.value)}
                 />
