@@ -2,7 +2,7 @@ class UserTripsController < ApplicationController
 
   # POST /user_trips
   def create
-    user_trip = @current_user.user_trips.build(user_trip_params)
+    user_trip = current_user.user_trips.build(user_trip_params)
     if user_trip.save
       render json: user_trip, status: :created
     else

@@ -30,6 +30,9 @@ const NavBar = ({user, setUser}) => {
                         <Link to='/trips' className="TripsLink">
                             Trips
                         </Link>
+                        <Link to='/events' className="TripsLink">
+                            Events
+                        </Link>
                         <button className="LogOutButton" onClick={handleLogout}>Log Out</button> 
                     </>
                 ) : (
