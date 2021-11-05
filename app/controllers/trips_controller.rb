@@ -2,7 +2,7 @@ class TripsController < ApplicationController
 
   # GET /trips
   def index
-    render json: Trip.all, each_serializer: TripIndexSerializer
+    render json: Trip.all
   end
 
   # GET /trips/1

@@ -1,14 +1,22 @@
 class UsersController < ApplicationController
-    skip_before_action :confirm_authentication, only: :create
-
-    def create
-        user = User.create!(user_params)
-        session[:user_id] = user.id
-        render json: user
-    end
+    skip_before_action :confirm_authentication
 
     def show
-        render json: @current_user
+        if current_user
+            render json: current_user, status: :ok
+        else
+            render json: { error: 'No active session' }, status: :unauthorized
+        end
+    end
+    
+    def create
+        user = User.new(user_params)
+        if user.save
+            session[:user_id] = user.id
+            render json: user, status: :created
+        else
+            render json: user.errors, status: :unprocessable_entity
+        end
     end
 
     private

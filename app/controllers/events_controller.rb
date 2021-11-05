@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    render json: Event.all, each_serializer: EventIndexSerializer
+    render json: Event.all
   end
 
   # GET /events/1
@@ -14,7 +14,7 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-    event = @current_user.created_events.build(event_params)
+    event = current_user.created_events.build(event_params)
     if event.save
       render json: event, status: :created
     else
@@ -48,7 +48,7 @@ class EventsController < ApplicationController
     end
 
     def authorize_user
-      user_can_modify = @current_user.admin? || @event.user == @current_user
+      user_can_modify = current_user.admin? || @event.user == current_user
       if !user_can_modify
         render json: { error: "You don't have permission to perform that action" }, status: :forbidden
       end

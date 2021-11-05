@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import {ImCross} from 'react-icons/im'
+
 
 const TripCard = ({tripId, leaveTrip, joinTrip}) => {
     const [trip, setTrip] = useState(null)

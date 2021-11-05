@@ -1,16 +1,19 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 
-const EventCard = ({eventId, cancelEvent}) => {
+const EventCard = ({eventId, cancelEvent, addParticipantFromEvent, removeParticipantFromEvent}) => {
     const [event, setEvent] = useState(null)
     const history = useHistory()
 
     const fetchEventCallback = useCallback(
         () => {
-            fetch(`/events/${eventId}`)
+            fetch(`/events/${eventId}`, {
+                credentials: 'include'
+            })
                 .then(res => res.json())
                 .then(event => setEvent(event))
-        }, [eventId]
+        }, 
+        [eventId],
     )
 
     useEffect(() => {
@@ -25,9 +28,30 @@ const EventCard = ({eventId, cancelEvent}) => {
         }
     }
 
-    const handleCancel = (event) => {
+    const handleCancel = (e) => {
         cancelEvent(event.id)
         history.push('/events')
+    }
+    
+    const joinEventBtn = (event) => {
+        if (event.user_event) {
+            return (
+                <button onClick={() => {
+                    removeParticipantFromEvent(event.id).then(() => fetchEventCallback())
+                }}>
+                    Leave Event
+                </button>
+            )
+        } else {
+            return (
+                <button onClick={() => {
+                    addParticipantFromEvent(event.id).then(() => fetchEventCallback())
+                }
+            }>
+                Join Event
+            </button>
+            )
+        }
     }
 
     if (!event) { return <div></div>}
@@ -35,16 +59,17 @@ const EventCard = ({eventId, cancelEvent}) => {
     return (
         <div>
             <h1>{event.title}</h1>
-            {cancelEventBtn}
+            {cancelEventBtn(event)}
             <small>Created by {event.creator} for <Link to={`/trips/${event.trip.id}`}>{event.trip.name}</Link></small>
             <p>{event.description}</p>
             <p>{event.time}</p>
             <p>Location: {event.location}</p>
-            {/* <ul>
-                {event.attendees.map(attendee => (
-                    <li>{attendee.username}</li>
+            <p>{joinEventBtn(event)}</p>
+            <ul>
+                {event.participants.map(participant => (
+                    <li>{participant.username}</li>
                 ))}
-            </ul> */}
+            </ul>
         </div>
     )
 }

@@ -30,6 +30,6 @@ class UserEventsController < ApplicationController
   end
 
   def update_user_event_params
-    params.permit(:attended)
+    params.permit(:participated)
   end
 end

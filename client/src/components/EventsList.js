@@ -86,7 +86,7 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
                                 value={location}
                                 onChange={(e) => setLocation(e.target.value)}
                             />
-                        <label>Budget:</label>
+                        <label htmlFor="budget">Budget:</label>
                             <input
                                 type="number"
                                 id="budget"
@@ -107,7 +107,7 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
                                 value={end_time}
                                 onChange={(e) => setEndTime(e.target.value)}
                             />
-                        <label htmlfor="trip_id">Trip Name </label>
+                        <label htmlFor="trip_id">Trip Name </label>
                         <input
                             type="text"
                             name="trip_id"

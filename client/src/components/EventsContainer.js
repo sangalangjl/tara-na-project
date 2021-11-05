@@ -8,18 +8,23 @@ const EventsContainer = () => {
     const [trips, setTrips] = useState([])
 
     useEffect(() => {
-        fetch("/events")
+        fetch("/events", {
+            credentials: 'include'
+        })
             .then(res => res.json())
             .then(events => setEvents(events))
-        fetch(`/trips`)
+        fetch(`/trips`, {
+            credentials: 'include'
+        })
             .then(res => res.json())
             .then(trips => setTrips(trips))
     }, [])
 
     const removeParticipantFromEvent = (eventId) => {
         const event = events.find(event => event.id === eventId)
-        return fetch(`user_events/${event.user_event.id}`, {
-            method: "DELETE"
+        return fetch(`/user_events/${event.user_event.id}`, {
+            method: "DELETE", 
+            credentials: 'include'
         })
             .then (res => {
                 if (res.ok) {
@@ -40,7 +45,8 @@ const EventsContainer = () => {
     
     const cancelEvent = (eventId) => {
         return fetch(`/events/${eventId}`, {
-            method: "DELETE"
+            method: "DELETE", 
+            credentials: 'include'
         })
             .then(res => {
                 if (res.ok) {
@@ -50,32 +56,13 @@ const EventsContainer = () => {
             })
     }
 
-    const createEvent = (formData) => {
-        return fetch("/events", {
-            method: "POST",
-            headers: {
-                "Content-Type": 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                } else {
-                    return res.json().then(errors => Promise.reject(errors))
-                }
-            })
-            .then(event => {
-                setEvents(events.concat(event))
-            })
-    }
-
     const addParticipantFromEvent = (eventId) => {
-        return fetch(`user_events`, {
+        return fetch(`/user_events`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials: 'include',
             body: JSON.stringify({
                 event_id: eventId
             })
@@ -99,6 +86,28 @@ const EventsContainer = () => {
                     }
                 })
                 setEvents(updatedEvents)
+            })
+    }
+
+
+    const createEvent = (formData) => {
+        return fetch("/events", {
+            method: "POST",
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(formData)
+        })
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                } else {
+                    return res.json().then(errors => Promise.reject(errors))
+                }
+            })
+            .then(event => {
+                setEvents(events.concat(event))
             })
     }
 

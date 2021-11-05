@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import {ImCross} from 'react-icons/im'
 
 const TripsList = ({ trips, leaveTrip, joinTrip, createTrip }) => {
     const [name, setName] = useState('')
@@ -37,10 +38,22 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip }) => {
             <h1>Trips</h1>
             <div>
                 {trips.map(trip => (
-                    <p key={trip.id}>
-                        <Link to={`trips/${trip.id}`}>{trip.name}</Link> 
-                        <span>{leaveOrJoinButton(trip)}</span>
-                    </p>
+                    <div key={trip.id}>
+                        <Link to={`trips/${trip.id}`}>
+                        <div className="TripCardContainer">
+                            <div className="TripCardImg">
+                                <img src={trip.img_url} alt={trip.img_url}/>
+                            </div>
+                            <div className="TripDetails">
+                                <h2 className="TripName">{trip.name}</h2>
+                                <h3 className="TripLocation">{trip.location}</h3>
+                                <h4 className="TripDuration">Duration: {trip.start_date} to {trip.end_date}</h4>
+                                <ImCross className="RemoveIcon" />
+                            </div>
+                        </div>
+                        <div>{leaveOrJoinButton(trip)}</div>
+                        </Link> 
+                    </div>
                 ))}
             </div>
             <h3>Add Trip</h3>
@@ -61,14 +74,14 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip }) => {
                 />
                 <label>Start Date:</label>
                 <input
-                    type="text"
+                    type="date"
                     name="start_date"
                     value={start_date}
                     onChange={(e) => setStartDate(e.target.value)}
                 />
                 <label>End Date:</label>
                 <input
-                    type="text"
+                    type="date"
                     name="end_date"
                     value={end_date}
                     onChange={(e) => setEndDate(e.target.value)}
