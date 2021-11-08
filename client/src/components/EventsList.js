@@ -52,14 +52,14 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
             <h1>Events</h1>
             <div>
                 {events.map(event => (
-                    <p>
-                        <Link to={`events/${event.id}`}>
+                    <div>
+                        <Link to={`/events/${event.id}`}>
                             {event.title}
                         </Link>
-                        <span>
+                        <div>
                             {addOrRemoveBtn(event)} {cancelEventBtn(event)}
-                        </span>
-                    </p>
+                        </div>
+                    </div>
                     ))}
             </div>
             <div>
@@ -107,7 +107,7 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
                                 value={end_time}
                                 onChange={(e) => setEndTime(e.target.value)}
                             />
-                        <label htmlFor="trip_id">Trip Name </label>
+                        <label htmlFor="trip_id">Trip Name:</label>
                         <input
                             type="text"
                             name="trip_id"
@@ -116,7 +116,7 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
                             onChange={(e) => setTripId(e.target.value)}
                         />
                         <datalist id="trips">
-                            {trips.map(trip => <option>{trip.name}</option>)}
+                            {trips.map(trip => <option value={trip.id}>{trip.name}</option>)}
                         </datalist>
                         <button type="submit">Add Event</button>
                     </form>

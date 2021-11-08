@@ -48,7 +48,7 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip }) => {
                                 <h2 className="TripName">{trip.name}</h2>
                                 <h3 className="TripLocation">{trip.location}</h3>
                                 <h4 className="TripDuration">Duration: {trip.start_date} to {trip.end_date}</h4>
-                                <ImCross className="RemoveIcon" />
+                                <ImCross className="RemoveIcon"/>
                             </div>
                         </div>
                         <div>{leaveOrJoinButton(trip)}</div>
@@ -58,35 +58,35 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip }) => {
             </div>
             <h3>Add Trip</h3>
             <form className="NewTripForm" onSubmit={handleSubmit}>
-                <label>Name:</label>
+                <label htmlFor="name">Name:</label>
                 <input
                     type="text"
                     name="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-                <label>Location:</label>
+                <label htmlFor="location">Location:</label>
                 <input
                     type="text"
                     name="location"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                 />
-                <label>Start Date:</label>
+                <label htmlFor="start_date">Start Date:</label>
                 <input
                     type="date"
                     name="start_date"
                     value={start_date}
                     onChange={(e) => setStartDate(e.target.value)}
                 />
-                <label>End Date:</label>
+                <label htmlFor="end_date">End Date:</label>
                 <input
                     type="date"
                     name="end_date"
                     value={end_date}
                     onChange={(e) => setEndDate(e.target.value)}
                 />
-                <label>Image URL:</label>
+                <label htmlFor="img_url">Image URL:</label>
                 <input
                     type="text"
                     name="img_url"

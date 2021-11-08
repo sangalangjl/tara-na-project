@@ -2,7 +2,7 @@ class EventSerializer < ActiveModel::Serializer
   attributes :creator, :id, :title, :description, :location, :budget, :start_time, :end_time, :time, :user_event, :user_can_modify
 
   has_many :participants
-  belongs_to :trip
+  belongs_to :trip, serializer: EventTripSerializer
 
   def creator
     object.user.username

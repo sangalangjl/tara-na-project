@@ -7,15 +7,18 @@ const TripContainer = ({user, errors, setErrors}) => {
     const [trips, setTrips] = useState([])
 
     useEffect(() => {
-        fetch("/trips")
+        fetch("/trips", {
+            credentials: 'include'
+        })
         .then(r => r.json())
-        .then((trips) => setTrips(trips))
+        .then(trips => setTrips(trips))
     }, [])
 
     const leaveTrip = (tripId) => {
         const userTripId = trips.find(trip => trip.id === tripId).user_trip.id
         return fetch(`/user_trips/${userTripId}`, {
-            method: 'DELETE'
+            method: 'DELETE', 
+            credentials: 'include'
         })
             .then(res => {
                 if (res.ok) {
@@ -40,6 +43,7 @@ const TripContainer = ({user, errors, setErrors}) => {
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials: 'include',
             body: JSON.stringify({
                 trip_id: tripId
             })
@@ -72,18 +76,19 @@ const TripContainer = ({user, errors, setErrors}) => {
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials: 'include',
             body: JSON.stringify(formData)
             })
             .then(res => {
                 if (res.ok) {
-                return res.json()
+                    return res.json()
                 } else {
-                return res.json().then(errors => Promise.reject(errors))
+                    return res.json().then(errors => Promise.reject(errors))
                 }
             })
             .then(trip => {
                 setTrips(trips.concat(trip))
-        })
+            })
     }
 
     // const handleDeleteTrip = (id) => {
