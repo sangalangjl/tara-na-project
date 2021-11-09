@@ -91,6 +91,19 @@ const TripContainer = ({user, errors, setErrors}) => {
             })
     }
 
+    const cancelTrip = (tripId) => {
+        return fetch(`/trips/${tripId}`, {
+            method: "DELETE", 
+            credentials: 'include'
+        })
+            .then(res => {
+                if (res.ok) {
+                    const updatedTrips = trips.filter(trip => trip.id !== tripId)
+                    setTrips(updatedTrips)
+                }
+            })
+    }
+
     // const handleDeleteTrip = (id) => {
     //     const newTrips = trips.filter((trip) => trip.id !== id)
     //     setTrips(newTrips)
@@ -136,6 +149,7 @@ const TripContainer = ({user, errors, setErrors}) => {
                         leaveTrip={leaveTrip}
                         joinTrip={joinTrip}
                         createTrip={createTrip}
+                        cancelTrip={cancelTrip}
                     />
                 </Route>
                 <Route exact path="/trips/:id"
@@ -145,6 +159,7 @@ const TripContainer = ({user, errors, setErrors}) => {
                                 tripId={match.params.id}
                                 leaveTrip={leaveTrip}
                                 joinTrip={joinTrip}
+                                cancelTrip={cancelTrip}
                             />
                         )
                     }}

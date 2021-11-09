@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {ImCross} from 'react-icons/im'
 
-const TripsList = ({ trips, leaveTrip, joinTrip, createTrip }) => {
+const TripsList = ({ trips, leaveTrip, joinTrip, createTrip, cancelTrip }) => {
     const [name, setName] = useState('')
     const [location, setLocation] = useState('')
     const [start_date, setStartDate] = useState('')

@@ -21,6 +21,11 @@ class TripsController < ApplicationController
     end
   end
 
+  def destroy
+    trip = Trip.find(params[:id])
+    trip.destroy
+  end
+
 
   private
     # Only allow a list of trusted parameters through.

@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 
-const TripCard = ({tripId, leaveTrip, joinTrip}) => {
+const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
     const [trip, setTrip] = useState(null)
+    const history = useHistory()
 
     const fetchTripCallback = useCallback(() => {
         fetch(`/trips/${tripId}`)
@@ -27,11 +28,25 @@ const TripCard = ({tripId, leaveTrip, joinTrip}) => {
         }
     }
 
+    const cancelTripBtn = (trip) => {
+        if (trip.user_can_modify) {
+            return (
+                <button onClick={handleCancel}>Cancel Trip</button>
+            )
+        }
+    }
+
+    const handleCancel = (e) => {
+        cancelTrip(trip.id)
+        history.push('/trips')
+    }
+
     if(!trip){return <div></div>}
 
     return (
         <div>
             <h1>{trip.name}</h1>
+            {cancelTripBtn(trip)}
             {leaveOrJoinButton(trip)}
             <h2>Members</h2>
                 <div>
