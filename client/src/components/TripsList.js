@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import {ImCross} from 'react-icons/im'
 
 const TripsList = ({ trips, leaveTrip, joinTrip, createTrip, cancelTrip }) => {
     const [name, setName] = useState('')
@@ -7,6 +8,8 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip, cancelTrip }) => {
     const [start_date, setStartDate] = useState('')
     const [end_date, setEndDate] = useState('')
     const [img_url, setImgURL] = useState('')
+
+    const [toggleNewTrip, setToggleNewTrip] = useState(false)
 
     // const leaveOrJoinButton = (trip) => {
     //     if (trip.user_trip) {
@@ -32,49 +35,55 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip, cancelTrip }) => {
         setImgURL('')
     }
 
+    const handleOnClickTripForm = () => {
+        setToggleNewTrip(true)
+    }
+
     return (
         <div>
-            <div>
-                <h3>Add Trip</h3>
-            </div>
-            <form className="NewTripForm" onSubmit={handleSubmit}>
-                <label htmlFor="name">Name:</label>
-                <input
-                    type="text"
-                    name="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <label htmlFor="location">Location:</label>
-                <input
-                    type="text"
-                    name="location"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                />
-                <label htmlFor="start_date">Start Date:</label>
-                <input
-                    type="date"
-                    name="start_date"
-                    value={start_date}
-                    onChange={(e) => setStartDate(e.target.value)}
-                />
-                <label htmlFor="end_date">End Date:</label>
-                <input
-                    type="date"
-                    name="end_date"
-                    value={end_date}
-                    onChange={(e) => setEndDate(e.target.value)}
-                />
-                <label htmlFor="img_url">Image URL:</label>
-                <input
-                    type="text"
-                    name="img_url"
-                    value={img_url}
-                    onChange={(e) => setImgURL(e.target.value)}
-                />
-                <button className="NewTripBtn" type="submit">Submit</button>
-            </form>
+            <h3 onClick={handleOnClickTripForm}>+ Add Trip</h3>
+            {toggleNewTrip ?
+                <div>
+                    <form className="NewTripForm" onSubmit={handleSubmit}>
+                        <label htmlFor="name">Name:</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <label htmlFor="location">Location:</label>
+                        <input
+                            type="text"
+                            name="location"
+                            value={location}
+                            onChange={(e) => setLocation(e.target.value)}
+                        />
+                        <label htmlFor="start_date">Start Date:</label>
+                        <input
+                            type="date"
+                            name="start_date"
+                            value={start_date}
+                            onChange={(e) => setStartDate(e.target.value)}
+                        />
+                        <label htmlFor="end_date">End Date:</label>
+                        <input
+                            type="date"
+                            name="end_date"
+                            value={end_date}
+                            onChange={(e) => setEndDate(e.target.value)}
+                        />
+                        <label htmlFor="img_url">Image URL:</label>
+                        <input
+                            type="text"
+                            name="img_url"
+                            value={img_url}
+                            onChange={(e) => setImgURL(e.target.value)}
+                        />
+                        <button className="NewTripBtn" type="submit">Submit</button>
+                    </form>
+                    <ImCross onClick={() => setToggleNewTrip(false)} />
+                </div> : null}
             <div>
                 <h1>Trips</h1>
             </div>
