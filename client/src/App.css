@@ -52,10 +52,10 @@
 
 .EachTripCardContainer {
   border-radius: 29px;
-  width: 445px;
+  width: 430px;
   height: 310px;
   position: relative;
-  margin: 10px 10px 10px 30px;
+  margin: 10px 0px 10px 30px;
   border: 1px solid;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .TripCardImg img {
-  width: 445px;
+  width: 430px;
   height: 310px;
   border-radius: 29px;
   position: absolute;
@@ -97,7 +97,7 @@
 .TripDetails {
   background-color: white;
   position: absolute;
-  width: 445px;
+  width: 430px;
   height: 75px;
   border-radius: 29px 29px 0 0;
 }
@@ -176,15 +176,51 @@ a:link {
   font-weight: bold; 
 }
 
-.NewTripContainer {
+.NewTripForm {
   position: absolute;
-  flex-direction: column;
-  top: 70px;
+  top: 520%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
-  box-shadow: none;
-  background-color: red;
-  height: 600px;
-  width: 450px;
-  overflow: hidden;
-  border-radius: 10px 10px 10px 10px;
+  border: 1px solid #707070;
+  height: 500px;
+  width: 650px;
+  border-radius: 29px;
+  background-color: white;
+}
+
+.NewTripText h1 {
+  color: #29B1E0;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.NewTripForm form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.CloseTripFromBtn {
+  position: absolute;
+  width: 25px;
+  transform: translate(610px, -290px);
+}
+
+.NewTripContainer {
+  position: relative;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.TripsListText h2 {
+  margin-left: 30px;
+  font-size: 35px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.AddTripFormText h3 {
+  margin-right: 30px;
 }
