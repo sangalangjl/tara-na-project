@@ -49,19 +49,6 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
 
     return (
         <div>
-            <h1>Events</h1>
-            <div>
-                {events.map(event => (
-                    <div>
-                        <Link to={`/events/${event.id}`}>
-                            {event.title}
-                        </Link>
-                        <div>
-                            {addOrRemoveBtn(event)} {cancelEventBtn(event)}
-                        </div>
-                    </div>
-                    ))}
-            </div>
             <div>
                 <h3>Add Event</h3>
                     <form onSubmit={handleSubmit}>
@@ -120,6 +107,19 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
                         </datalist>
                         <button type="submit">Add Event</button>
                     </form>
+            </div>
+            <h1>Events</h1>
+            <div>
+                {events.map(event => (
+                    <div>
+                        <Link to={`/events/${event.id}`}>
+                            {event.title}
+                        </Link>
+                        <div>
+                            {addOrRemoveBtn(event)} {cancelEventBtn(event)}
+                        </div>
+                    </div>
+                    ))}
             </div>
         </div>
     )

@@ -20,6 +20,7 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
         if (trip.user_trip) {
             return (
                 <button onClick={() => leaveTrip(trip.id).then(() => fetchTripCallback())}>Leave Trip</button>
+                
             )
         } else {
             return (
@@ -46,16 +47,19 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
     return (
         <div>
             <h1>{trip.name}</h1>
+            <h3>{trip.location}</h3>
+            <h4>Duration: {trip.start_date} to {trip.end_date}</h4>
+            <h6>Unique ID: {trip.id}</h6>
             {cancelTripBtn(trip)}
             {leaveOrJoinButton(trip)}
             <h2>Members</h2>
                 <div>
-                    {trip.members?.map(member => <div>{member.username}</div>)}
+                    {trip.members?.map(member => <div key={member.id}>{member.first_name} {member.last_name}</div>)}
                 </div>
             <h2>Events</h2>
                 <ul>
                     {trip.events?.map(event => (
-                        <li>
+                        <li key={trip.id} >
                             <Link to={`/events/${event.id}`}>
                             <div>
                                 {event.title}
@@ -76,19 +80,6 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
         </div>
     )
 
-    // return (
-    //     <div className="TripCardContainer">
-    //         <div className="TripCardImg">
-    //             <img src={img_url} alt={img_url}/>
-    //         </div>
-    //         <div className="TripDetails">
-    //             <h2 className="TripName">{name}</h2>
-    //             <h3 className="TripLocation">{location}</h3>
-    //             <h4 className="TripDuration">Duration: {start_date} to {end_date}</h4>
-    //             <ImCross className="RemoveIcon" />
-    //         </div>
-    //     </div>
-    // )
 }
 
 export default TripCard

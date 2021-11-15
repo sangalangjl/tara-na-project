@@ -45,56 +45,59 @@ const Signup = ({ setUser, setErrors, isLoading, setIsLoading, errors}) => {
 
     return (
         <div className="SignUpContainer">
-            <form className="FormSignin"onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
+            <div className="SignUpText">
+                <h2>Sign Up</h2>
+            </div>
+            <form className="SignUpForm"onSubmit={handleSubmit}>
                 <input 
                     type="text" 
+                    placeholder="Username"
                     id="username" 
                     autoComplete="off"
                     value={username} 
                     onChange={(e) => setUsername(e.target.value)}
                 />
-                <label htmlFor="first_name">First Name:</label>
                 <input 
                     type="text" 
+                    placeholder="First Name"
                     id="first_name" 
                     autoComplete="off"
                     value={first_name} 
                     onChange={(e) => setFirstName(e.target.value)}
                 />
-                <label htmlFor="last_name">Last Name:</label>
                 <input 
                     type="text" 
+                    placeholder="Last Name"
                     id="last_name" 
                     autoComplete="off"
                     value={last_name} 
-                    onChange={(e) => setLastName(e.target.value)}/
-                >
-                <label htmlFor="email">Email:</label>
+                    onChange={(e) => setLastName(e.target.value)}
+                />
                     <input 
                         type="text" 
+                        placeholder="Email"
                         id="email" 
                         autoComplete="off"
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)}/>
-                <label htmlFor="img_url">Profile Picture:</label>
                     <input 
                         type="text" 
+                        placeholder="Profile Picture"
                         id="img_url" 
                         autoComplete="off"
                         value={imgURL} 
                         onChange={(e) => setImgURL(e.target.value)}/>
-                <label htmlFor="password">Password:</label>
                 <input 
                     type="password" 
+                    placeholder="Password"
                     id="password" 
                     autoComplete="current-password"
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <label htmlFor="password_confirmation">Password Confirmation:</label>
                 <input 
                     type="password" 
+                    placeholder="Confirm Password"
                     id="password_confirmation" 
                     autoComplete="current-password"
                     value={password_confirmation} 

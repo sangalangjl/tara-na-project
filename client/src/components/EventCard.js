@@ -67,7 +67,7 @@ const EventCard = ({eventId, cancelEvent, addParticipantFromEvent, removePartici
             <p>{joinEventBtn(event)}</p>
             <ul>
                 {event.participants.map(participant => (
-                    <li>{participant.username}</li>
+                    <li key={participant.id} >{participant.username}</li>
                 ))}
             </ul>
         </div>

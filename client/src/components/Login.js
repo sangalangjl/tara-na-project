@@ -29,18 +29,21 @@ const Login = ({errors, setErrors, setUser, setIsLoading}) => {
 
     return (
         <div className="LogInContainer">
+            <div className="LogInText">
+                <h2>Log In</h2>
+            </div>
             <form className="LogInForm" onSubmit={handleSubmit}>
-                <label>Username:</label>
                 <input 
                     type="text" 
+                    placeholder="Username"
                     id="username" 
                     autoComplete="on"
                     value={username} 
                     onChange={(e) => setUsername(e.target.value)}
                 />
-                <label>Password:</label>
                 <input 
                     type="password" 
+                    placeholder="Password"
                     id="password" 
                     autoComplete="current-password"
                     value={password} 

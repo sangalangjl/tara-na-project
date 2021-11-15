@@ -29,11 +29,6 @@
   margin-left: 10px;
 }
 
-a:link {
-  color: none;
-  text-decoration: none;
-}
-
 .HomeDiv {
   background-color: #29B1E0;
   color: #FFFFFF;
@@ -50,6 +45,12 @@ a:link {
 }
 
 .TripCardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.EachTripCardContainer {
   border-radius: 29px;
   width: 445px;
   height: 310px;
@@ -93,18 +94,6 @@ a:link {
   font-weight: lighter;
 }
 
-.RemoveIcon {
-  position: absolute;
-  right: 30px;
-  top: 30px;
-}
-
-.TripList {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .TripDetails {
   background-color: white;
   opacity: 90%;
@@ -112,4 +101,79 @@ a:link {
   width: 445px;
   height: 75px;
   border-radius: 29px 29px 0 0;
+}
+
+.TripUniqueID {
+  margin-left: 370px;
+  line-height: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+
+a:link {
+  color: none;
+  text-decoration: none;
+}
+
+.LogInContainer {
+  border: 1px solid #707070;
+  border-radius: 29px;
+  height: 330px;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.SignUpContainer {
+  border: 1px solid #707070;
+  border-radius: 29px;
+  height: 650px;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.LogInContainer form, .SignUpContainer form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  align-items: center;
+}
+
+.LogInForm input, .SignUpForm input {
+  border: 1px solid #707070;
+  border-radius: 29px;
+  margin: 20px 0 0 0;
+  width: 470px;
+  height: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.LogInText, .SignUpText {
+  background-color: #29B1E0;
+  border-radius: 29px 29px 0 0;
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 19px;
+}
+
+.LogInBtn, .SignUpBtn {
+  background: none;
+  border: 1px solid #707070;
+  border-radius: 29px;
+  margin-top: 30px;
+  width: 250px;
+  height: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: #707070;
+  font-weight: bold;
+  
 }
