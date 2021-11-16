@@ -98,9 +98,6 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
                                 <div>
                                     Location: {event.location}
                                 </div>
-                                <div>
-                                    Budget: ${event.budget.toFixed(2)}
-                                </div>
                             </Link>
                         </div>
                     ))}

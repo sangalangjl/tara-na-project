@@ -84,19 +84,24 @@ const EventCard = ({eventId, cancelEvent, addParticipantFromEvent, removePartici
                     </div>
                 </div>
                 <div className="EventDetails">
-                    <div>
+                    <div className="EventTimeText">
                         <h3>Time: {event.time}</h3>
                     </div>
-                    <div>
+                    <div className="EventLocationText">
                         <h4>Location: {event.location}</h4>
                     </div>
-                    <div>
+                    <div className="EventDescriptionText">
                         <h4>Description: {event.description}</h4>
                     </div>
-                    <div>
-                        Created by {event.creator} for <Link to={`/trips/${event.trip.id}`}>{event.trip.name}</Link>
+                    <div className="EventBudgetText">
+                        <h4>Budget: ${event.budget.toFixed(2)}</h4>
                     </div>
-                    {cancelEventBtn(event)}
+                    <div className="EventCreatedByText">
+                        <h5>Created by {event.creator} for <Link to={`/trips/${event.trip.id}`}>{event.trip.name}</Link></h5>
+                    </div>
+                    <div className="EventCancelBtn">
+                        {cancelEventBtn(event)}
+                    </div>
                 </div>
             </div>
         </>
