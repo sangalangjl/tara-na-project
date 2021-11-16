@@ -75,10 +75,6 @@
   border: 1px solid;
 }
 
-.TripDetails {
-  background: red;
-}
-
 .TripCardImg img {
   width: 430px;
   height: 310px;
@@ -116,6 +112,7 @@
   width: 430px;
   height: 75px;
   border-radius: 29px 29px 0 0;
+  opacity: 0.90;
 }
 
 .TripUniqueID {
