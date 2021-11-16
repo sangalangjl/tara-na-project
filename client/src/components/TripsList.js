@@ -54,44 +54,49 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip, cancelTrip }) => {
                             <h1>Add a New Trip</h1>
                         </div>
                         <form onSubmit={handleSubmit}>
-                            <label htmlFor="name">Name:</label>
-                            <input
-                                type="text"
-                                name="name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                            <label htmlFor="location">Location:</label>
-                            <input
-                                type="text"
-                                name="location"
-                                value={location}
-                                onChange={(e) => setLocation(e.target.value)}
-                            />
-                            <label htmlFor="start_date">Start Date:</label>
-                            <input
-                                type="date"
-                                name="start_date"
-                                value={start_date}
-                                onChange={(e) => setStartDate(e.target.value)}
-                            />
-                            <label htmlFor="end_date">End Date:</label>
-                            <input
-                                type="date"
-                                name="end_date"
-                                value={end_date}
-                                onChange={(e) => setEndDate(e.target.value)}
-                            />
-                            <label htmlFor="img_url">Image URL:</label>
-                            <input
-                                type="text"
-                                name="img_url"
-                                value={img_url}
-                                onChange={(e) => setImgURL(e.target.value)}
-                            />
+                            <label htmlFor="name">Name:
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                            </label>
+                            <label htmlFor="location">Location:
+                                <input
+                                    type="text"
+                                    name="location"
+                                    value={location}
+                                    onChange={(e) => setLocation(e.target.value)}
+                                />
+                            </label>
+                            <label htmlFor="start_date">Start Date:
+                                <input
+                                    type="date"
+                                    name="start_date"
+                                    value={start_date}
+                                    onChange={(e) => setStartDate(e.target.value)}
+                                />
+                            </label>
+                            <label htmlFor="end_date">End Date:
+                                <input
+                                    type="date"
+                                    name="end_date"
+                                    value={end_date}
+                                    onChange={(e) => setEndDate(e.target.value)}
+                                />
+                            </label>
+                            <label htmlFor="img_url">Image URL:
+                                <input
+                                    type="text"
+                                    name="img_url"
+                                    value={img_url}
+                                    onChange={(e) => setImgURL(e.target.value)}
+                                />
+                            </label>
                             <button className="NewTripBtn" type="submit">Submit</button>
                         </form>
-                        <ImCross className="CloseTripFromBtn" onClick={() => setToggleNewTrip(false)} />
+                        <ImCross className="CloseTripFormBtn" onClick={() => setToggleNewTrip(false)} />
                     </div> 
                 : null}
             </div>

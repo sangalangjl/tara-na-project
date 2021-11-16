@@ -1,4 +1,5 @@
 import { Link, useHistory } from "react-router-dom"
+import { HiOutlineLogout } from "react-icons/hi"
 
 const NavBar = ({user, setUser}) => {
     const history = useHistory()
@@ -33,7 +34,7 @@ const NavBar = ({user, setUser}) => {
                         <Link to='/events' className="TripsLink">
                             Events
                         </Link>
-                        <button className="LogOutButton" onClick={handleLogout}>Log Out</button> 
+                        <HiOutlineLogout className="LogOutButton" onClick={handleLogout} />
                     </>
                 ) : (
                 <div className="SignupLoginContainer">

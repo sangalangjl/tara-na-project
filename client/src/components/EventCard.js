@@ -57,20 +57,28 @@ const EventCard = ({eventId, cancelEvent, addParticipantFromEvent, removePartici
     if (!event) { return <div></div>}
 
     return (
-        <div>
-            <h1>{event.title}</h1>
-            {cancelEventBtn(event)}
-            <small>Created by {event.creator} for <Link to={`/trips/${event.trip.id}`}>{event.trip.name}</Link></small>
-            <p>{event.description}</p>
-            <p>{event.time}</p>
-            <p>Location: {event.location}</p>
-            <p>{joinEventBtn(event)}</p>
-            <ul>
-                {event.participants.map(participant => (
-                    <li key={participant.id} >{participant.username}</li>
-                ))}
-            </ul>
-        </div>
+        <>
+            <div className="TripCardPage"> 
+                <div>
+                    <img src={event.trip.img_url} alt={event.trip.img_url}/>
+                </div>
+                <div className="EventCardName">
+                    <h1>{event.title}</h1>
+                </div>
+            
+                {cancelEventBtn(event)}
+                <small>Created by {event.creator} for <Link to={`/trips/${event.trip.id}`}>{event.trip.name}</Link></small>
+                <p>{event.description}</p>
+                <p>{event.time}</p>
+                <p>Location: {event.location}</p>
+                <p>{joinEventBtn(event)}</p>
+                <ul>
+                    {event.participants.map(participant => (
+                        <li key={participant.id} >{participant.username}</li>
+                    ))}
+                </ul>
+            </div>
+        </>
     )
 }
 
