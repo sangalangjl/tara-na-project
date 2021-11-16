@@ -289,7 +289,7 @@ a:link {
   left: 0px;
   top: 0px;
   z-index: -1;
-  opacity: 25%;
+  opacity: 0.25;
 }
 
 .TripCardName h1, .EventCardName h1 {
