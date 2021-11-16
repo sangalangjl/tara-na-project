@@ -5,7 +5,7 @@ class EventSerializer < ActiveModel::Serializer
   belongs_to :trip, serializer: EventTripSerializer
 
   def creator
-    object.user.username
+    "#{object.user.first_name} #{object.user.last_name}"
   end
 
   def time

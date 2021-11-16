@@ -275,11 +275,11 @@ a:link {
   text-decoration: underline;
 }
 
-.TripCardPage {
+.TripCardPage, .EventCardPage {
   position: relative;
 }
 
-.TripCardPage img {
+.TripCardPage img, .EventCardPage img {
   position: absolute;
   width: 100%;
   height: auto;
@@ -289,7 +289,7 @@ a:link {
   opacity: 0.25;
 }
 
-.TripCardName h1, .EventCardName h1 {
+.TripCardName h1 {
   margin-top: 0;
   padding-top: 20px;
   margin-left: 30px;
@@ -305,7 +305,7 @@ a:link {
   font-weight: lighter;
 }
 
-.MembersContainer {
+.MembersContainer, .ParticipantsContainer {
   border: 1px solid #707070;
   background: white;
   border-radius: 29px;
@@ -314,10 +314,9 @@ a:link {
   position: absolute;
   top: 180px;
   right: 50px;
-  
 }
 
-.MembersText {
+.MembersText, .ParticipantsText {
   border: 1px solid #707070;
   border-radius: 29px 29px 0 0;
   background: white;
@@ -329,7 +328,7 @@ a:link {
   font-size: 25px;
 }
 
-.MembersList {
+.MembersList, .ParticipantsList {
   margin-left: 20px;
   margin-bottom: 10px;
   margin-top: 20px;
@@ -340,7 +339,7 @@ a:link {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.MemberImg img{
+.MemberImg img, .ParticipantImg img {
   width: 50px;
   height: 50px;
   z-index: 1;
@@ -376,7 +375,7 @@ a:link {
   box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
-.LeaveOrJoinTripBtn button {
+.LeaveOrJoinTripBtn button, .LeaveOrJoinEventBtn button {
   border: 1px solid #707070;
   border-radius: 29px;
   background: white;
@@ -398,4 +397,19 @@ a:link {
 a {
   text-decoration: none;
   color: black;
+}
+
+.EventDetails {
+  background: white;
+  width: 980px;
+  height: auto;
+  border: 1px solid #707070;
+  border-radius: 29px;
+  margin-left: 20px;
+}
+
+.EventCardName h1 {
+  margin-top: 0;
+  padding-top: 20px;
+  margin-left: 20px;
 }

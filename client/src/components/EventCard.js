@@ -58,25 +58,46 @@ const EventCard = ({eventId, cancelEvent, addParticipantFromEvent, removePartici
 
     return (
         <>
-            <div className="TripCardPage"> 
-                <div>
-                    <img src={event.trip.img_url} alt={event.trip.img_url}/>
-                </div>
+            <div className="EventCardPage"> 
                 <div className="EventCardName">
                     <h1>{event.title}</h1>
                 </div>
-            
-                {cancelEventBtn(event)}
-                <small>Created by {event.creator} for <Link to={`/trips/${event.trip.id}`}>{event.trip.name}</Link></small>
-                <p>{event.description}</p>
-                <p>{event.time}</p>
-                <p>Location: {event.location}</p>
-                <p>{joinEventBtn(event)}</p>
-                <ul>
-                    {event.participants.map(participant => (
-                        <li key={participant.id} >{participant.username}</li>
-                    ))}
-                </ul>
+                <div>
+                    <img src={event.trip.img_url} alt={event.trip.img_url}/>
+                </div>
+                <div className="LeaveOrJoinEventBtn">
+                    {joinEventBtn(event)}
+                </div>
+                <div className="ParticipantsContainer">
+                    <div className="ParticipantsText">
+                        <h2>Participants ({event.participants?.length})</h2>
+                    </div>
+                    <div className="ParticipantsList">
+                        {event.participants?.map(participant => (
+                            <div key={participant.id} className="ParticipantListDetails">
+                                <div className="ParticipantImg">
+                                    <img src={participant.img_url} alt={participant.img_url}/>
+                                </div>
+                                    {participant.first_name} {participant.last_name}
+                                </div>
+                        ))}
+                    </div>
+                </div>
+                <div className="EventDetails">
+                    <div>
+                        <h3>Time: {event.time}</h3>
+                    </div>
+                    <div>
+                        <h4>Location: {event.location}</h4>
+                    </div>
+                    <div>
+                        <h4>Description: {event.description}</h4>
+                    </div>
+                    <div>
+                        Created by {event.creator} for <Link to={`/trips/${event.trip.id}`}>{event.trip.name}</Link>
+                    </div>
+                    {cancelEventBtn(event)}
+                </div>
             </div>
         </>
     )
