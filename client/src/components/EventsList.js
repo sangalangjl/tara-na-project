@@ -19,9 +19,9 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
 
     const addOrRemoveBtn = (event) => {
         if (event.user_event) {
-            return <button onClick={() => removeParticipantFromEvent(event.id)}>Leave Event</button>
+            return <button className="LeaveEventBtn" onClick={() => removeParticipantFromEvent(event.id)}>Leave Event</button>
         } else {
-            return <button onClick={() => addParticipantFromEvent(event.id)}>Join Event</button>
+            return <button className="JoinEventBtn" onClick={() => addParticipantFromEvent(event.id)}>Join Event</button>
         }
     }
 
@@ -145,6 +145,9 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
                                 </div>
                                 <div className="EventListTime">
                                     {event.time}
+                                </div>
+                                <div className="EventListTripInfo">
+                                    {event.trip.name} (Unique ID: {event.trip.id})
                                 </div>
                             </Link>
                             <div className="JoinOrLeaveEventBtn">

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import {ImCross} from 'react-icons/im'
 
 const TripsList = ({ trips, leaveTrip, joinTrip, createTrip, cancelTrip }) => {
@@ -10,6 +10,8 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip, cancelTrip }) => {
     const [img_url, setImgURL] = useState('')
 
     const [toggleNewTrip, setToggleNewTrip] = useState(false)
+
+    const history = useHistory()
 
     // const leaveOrJoinButton = (trip) => {
     //     if (trip.user_trip) {

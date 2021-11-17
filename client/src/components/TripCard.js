@@ -19,12 +19,12 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
     const leaveOrJoinButton = (trip) => {
         if (trip.user_trip) {
             return (
-                <button onClick={() => leaveTrip(trip.id).then(() => fetchTripCallback())}>Leave Trip</button>
+                <button className="LeaveTripBtn" onClick={() => leaveTrip(trip.id).then(() => fetchTripCallback())}>Leave Trip</button>
                 
             )
         } else {
             return (
-                <button onClick={() => joinTrip(trip.id).then(() => fetchTripCallback())}>Join Trip</button>
+                <button className="JoinTripBtn" onClick={() => joinTrip(trip.id).then(() => fetchTripCallback())}>Join Trip</button>
             )
         }
     }

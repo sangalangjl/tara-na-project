@@ -36,7 +36,7 @@ const EventCard = ({eventId, cancelEvent, addParticipantFromEvent, removePartici
     const joinEventBtn = (event) => {
         if (event.user_event) {
             return (
-                <button onClick={() => {
+                <button className="LeaveEventCardBtn" onClick={() => {
                     removeParticipantFromEvent(event.id).then(() => fetchEventCallback())
                 }}>
                     Leave Event
@@ -44,7 +44,7 @@ const EventCard = ({eventId, cancelEvent, addParticipantFromEvent, removePartici
             )
         } else {
             return (
-                <button onClick={() => {
+                <button className="JoinEventCardBtn" onClick={() => {
                     addParticipantFromEvent(event.id).then(() => fetchEventCallback())
                 }
             }>
