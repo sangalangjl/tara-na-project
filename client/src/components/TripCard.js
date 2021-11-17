@@ -76,7 +76,7 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
                                     <div className="MemberImg">
                                         <img src={member.img_url} alt={member.img_url}/>
                                     </div>
-                                    <div>
+                                    <div className="MemberFullNameText">
                                         {member.first_name} {member.last_name}
                                     </div>
                                 </div>)}

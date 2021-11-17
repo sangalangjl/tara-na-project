@@ -135,14 +135,22 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
                             <ImCross className="CloseEventFormBtn" onClick={() => setToggleNewEvent(false)} />
                         </div> : null}
             </div>
-            <div>
+            <div className="EventListContainer">
                 {events.map(event => (
-                    <div>
-                        <Link to={`/events/${event.id}`}>
-                            {event.title}
-                        </Link>
-                        <div>
-                            {addOrRemoveBtn(event)} {cancelEventBtn(event)}
+                    <div className="EventLists">
+                        <div className="EventListDetails">
+                            <Link to={`/events/${event.id}`}>
+                                <div className="EventListTitle">
+                                    {event.title}
+                                </div>
+                                <div className="EventListTime">
+                                    {event.time}
+                                </div>
+                            </Link>
+                            <div className="JoinOrLeaveEventBtn">
+                                {addOrRemoveBtn(event)} 
+                                {/* {cancelEventBtn(event)} */}
+                            </div>
                         </div>
                     </div>
                     ))}

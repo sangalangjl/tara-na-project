@@ -78,8 +78,10 @@ const EventCard = ({eventId, cancelEvent, addParticipantFromEvent, removePartici
                                 <div className="ParticipantImg">
                                     <img src={participant.img_url} alt={participant.img_url}/>
                                 </div>
+                                <div className="ParticipantFullNameText">
                                     {participant.first_name} {participant.last_name}
                                 </div>
+                            </div>
                         ))}
                     </div>
                 </div>
