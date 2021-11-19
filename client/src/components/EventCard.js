@@ -5,13 +5,12 @@ const EventCard = ({eventId, cancelEvent, addParticipantFromEvent, removePartici
     const [event, setEvent] = useState(null)
     const history = useHistory()
 
-    const fetchEventCallback = useCallback(
-        () => {
-            fetch(`/events/${eventId}`, {
-                credentials: 'include'
-            })
-                .then(res => res.json())
-                .then(event => setEvent(event))
+    const fetchEventCallback = useCallback(() => {
+        fetch(`/events/${eventId}`, {
+            credentials: 'include'
+        })
+            .then(res => res.json())
+            .then(event => setEvent(event))
         }, 
         [eventId],
     )

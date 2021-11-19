@@ -7,7 +7,9 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
     const history = useHistory()
 
     const fetchTripCallback = useCallback(() => {
-        fetch(`/trips/${tripId}`)
+        fetch(`/trips/${tripId}`, {
+            credentials: 'include'
+        })
             .then(res => res.json())
             .then(trip => setTrip(trip))
     }, [tripId])
@@ -15,6 +17,21 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
     useEffect(() => {
         fetchTripCallback()
     }, [fetchTripCallback])
+
+
+    const cancelTripBtn = (trip) => {
+        if (trip.user_can_modify) {
+            return (
+                <button onClick={handleCancel}>Cancel Trip</button>
+            )
+        }
+    }
+
+
+    const handleCancel = (e) => {
+        cancelTrip(trip.id)
+        history.push('/trips')
+    }
 
     const leaveOrJoinButton = (trip) => {
         if (trip.user_trip) {
@@ -27,19 +44,6 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
                 <button className="JoinTripBtn" onClick={() => joinTrip(trip.id).then(() => fetchTripCallback())}>Join Trip</button>
             )
         }
-    }
-
-    const cancelTripBtn = (trip) => {
-        if (trip.user_can_modify) {
-            return (
-                <button onClick={handleCancel}>Cancel Trip</button>
-            )
-        }
-    }
-
-    const handleCancel = (e) => {
-        cancelTrip(trip.id)
-        history.push('/trips')
     }
 
     if(!trip){return <div></div>}
@@ -62,7 +66,9 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
                 <div className="TripCardUniqueID">
                     <h5>Unique ID: {trip.id}</h5>
                 </div>
-                {cancelTripBtn(trip)}
+                <div className="CancelTripBtn">
+                    {cancelTripBtn(trip)}
+                </div>
                 <div className="LeaveOrJoinTripBtn">
                     {leaveOrJoinButton(trip)}
                 </div>

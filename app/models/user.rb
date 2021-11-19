@@ -6,6 +6,7 @@ class User < ApplicationRecord
     has_many :user_events
     has_many :events, through: :user_events
     has_many :created_events, class_name: 'Event'
+    has_many :created_trips, class_name: 'Trip'
 
     validates :username, presence: true, uniqueness: true	
     validates :first_name, presence: true	

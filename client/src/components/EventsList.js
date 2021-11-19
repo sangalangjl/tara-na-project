@@ -25,11 +25,11 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
         }
     }
 
-    const cancelEventBtn = (event) => {
-        if (event.user_is_creator) {
-            return <button onClick={() => cancelEvent(event.id)}>Delete Event</button>
-        }
-    }
+    // const cancelEventBtn = (event) => {
+    //     if (event.user_is_creator) {
+    //         return <button onClick={() => cancelEvent(event.id)}>Delete Event</button>
+    //     }
+    // }
 
     const handleSubmit = (e) => {
         e.preventDefault()
