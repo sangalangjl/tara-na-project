@@ -369,7 +369,7 @@ a:link {
   height: 50px;
   z-index: 1;
   position: relative;
-  opacity: 1.0;
+  opacity: 0.99;
 }
 
 .TripEventsContainer {
