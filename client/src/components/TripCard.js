@@ -22,7 +22,7 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
     const cancelTripBtn = (trip) => {
         if (trip.user_can_modify) {
             return (
-                <button onClick={handleCancel}>Cancel Trip</button>
+                <button className="CancelTripBtn" onClick={handleCancel}>Cancel Trip</button>
             )
         }
     }
