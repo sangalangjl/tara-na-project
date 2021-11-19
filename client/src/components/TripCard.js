@@ -66,7 +66,7 @@ const TripCard = ({tripId, leaveTrip, joinTrip, cancelTrip}) => {
                 <div className="TripCardUniqueID">
                     <h5>Unique ID: {trip.id}</h5>
                 </div>
-                <div className="CancelTripBtn">
+                <div className="CancelTripBtnDiv">
                     {cancelTripBtn(trip)}
                 </div>
                 <div className="LeaveOrJoinTripBtn">

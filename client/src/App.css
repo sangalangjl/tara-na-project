@@ -574,7 +574,7 @@ a {
   font-size: 200px;
 }
 
-.CancelTripBtn button {
+.CancelTripBtn {
   border: 1px solid #707070;
   border-radius: 29px;
   background: #29B1E0;
