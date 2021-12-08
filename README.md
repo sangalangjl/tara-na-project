@@ -9,3 +9,6 @@
     * join and leave an event
 
 * Developed with React front-end, Ruby on Rails back end, and custom CSS.
+
+* Checkout DEMO
+https://www.youtube.com/watch?v=TYS57j5fg54
