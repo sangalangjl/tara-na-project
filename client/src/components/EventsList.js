@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {ImCross} from 'react-icons/im'
 
-const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFromEvent, removeParticipantFromEvent}) => {
+const EventsList = ({ events, trips, createEvent, addParticipantFromEvent, removeParticipantFromEvent}) => {
 
     const [toggleNewEvent, setToggleNewEvent] = useState(false)
 
@@ -24,12 +24,6 @@ const EventsList = ({ events, trips, cancelEvent, createEvent, addParticipantFro
             return <button className="JoinEventBtn" onClick={() => addParticipantFromEvent(event.id)}>Join Event</button>
         }
     }
-
-    // const cancelEventBtn = (event) => {
-    //     if (event.user_is_creator) {
-    //         return <button onClick={() => cancelEvent(event.id)}>Delete Event</button>
-    //     }
-    // }
 
     const handleSubmit = (e) => {
         e.preventDefault()

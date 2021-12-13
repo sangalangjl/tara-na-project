@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import TripCard from './TripCard'
 import TripsList from './TripsList'
 
-const TripContainer = ({user, errors, setErrors}) => {
+const TripContainer = () => {
     const [trips, setTrips] = useState([])
 
     useEffect(() => {

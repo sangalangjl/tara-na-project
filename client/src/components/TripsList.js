@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import {ImCross} from 'react-icons/im'
 
-const TripsList = ({ trips, leaveTrip, joinTrip, createTrip, cancelTrip }) => {
+const TripsList = ({ trips, createTrip }) => {
     const [name, setName] = useState('')
     const [location, setLocation] = useState('')
     const [start_date, setStartDate] = useState('')
@@ -10,16 +10,6 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip, cancelTrip }) => {
     const [img_url, setImgURL] = useState('')
 
     const [toggleNewTrip, setToggleNewTrip] = useState(false)
-
-    const history = useHistory()
-
-    // const leaveOrJoinButton = (trip) => {
-    //     if (trip.user_trip) {
-    //         return <button onClick={() => leaveTrip(trip.id)}>Leave Trip</button>
-    //     } else {
-    //         return <button onClick={() => joinTrip(trip.id)}>Join Trip</button>
-    //     }
-    // }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -117,7 +107,6 @@ const TripsList = ({ trips, leaveTrip, joinTrip, createTrip, cancelTrip }) => {
                                     <h6 className="TripUniqueID">Unique ID: {trip.id}</h6>
                                 </div>
                             </div>
-                        {/* <div>{leaveOrJoinButton(trip)}</div> */}
                         </Link> 
                     </div>
                 ))}

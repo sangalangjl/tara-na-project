@@ -12,16 +12,6 @@ class TripsController < ApplicationController
     render json: @trip
   end
 
-  # POST /trips
-  # def create
-  #   trip = Trip.new(trip_params)
-  #   if trip.save
-  #     render json: trip, status: :created
-  #   else
-  #     render json: trip.errors, status: :unprocessable_entity
-  #   end
-  # end
-
   def create
     trip = current_user.created_trips.new(trip_params)
     if trip.save
