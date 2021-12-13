@@ -1,24 +1,14 @@
-# README
+* An application where users can organize their trips:
+  - Users are able to:
+    * sign up and log in
+    * create a trip
+    * delete a trip
+    * add an event to an existing trip
+    * delete an event to an existing trip
+    * join and leave a trip
+    * join and leave an event
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Developed with React front-end, Ruby on Rails back end, and custom CSS.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Checkout DEMO
+https://www.youtube.com/watch?v=TYS57j5fg54
